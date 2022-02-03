@@ -1,4 +1,5 @@
 <%= button_to "logout", destroy_user_session_path, method: :delete  %>
+
 <h1>Lists of movies</h1>
 <ol>
   <% @properties.each do |property| %>
@@ -7,3 +8,17 @@
 </ol>
 
 <%= link_to 'List a your property', new_property_path %>
+
+<div class="container">
+  <div class="cards">
+    <% @properties.take(9).each do |property| %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+      url(https://q-xx.bstatic.com/xdata/images/hotel/840x460/76109618.jpg?k=ba537b048279407e0241cbd138c6dced32572a4f864bdaf5dbb60c314c3003b0&o=)">
+        <%= property.property_name %><br>
+        <%= property.property_address %><br>
+        <%= property.property_price %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
