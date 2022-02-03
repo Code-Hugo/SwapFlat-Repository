@@ -12,6 +12,17 @@ class PropertiesController < ApplicationController
     #authorise @property
   end
 
+  def edit
+    @property = Property.find(params[:id])
+  end
+
+  def update
+    @property = Property.find(params[:id])
+    @property.update(property_params)
+
+    redirect_to property_path(@property)
+  end
+
   def create
     @property = Property.new(property_params)
     @property.user = current_user

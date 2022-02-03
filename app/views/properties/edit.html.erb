@@ -1,0 +1,9 @@
+<%= form_for(@property) do |f| %>
+  <%= f.label :property_name %>
+  <%= f.text_field :property_name %>
+  <%= f.label :property_address %>
+  <%= f.text_field :property_address %>
+  <%= f.label :property_price %>
+  <%= f.number_field :property_price %>
+  <%= f.submit %>
+<% end %>
