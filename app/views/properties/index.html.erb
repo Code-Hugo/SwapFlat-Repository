@@ -23,7 +23,7 @@
         <img src="https://q-xx.bstatic.com/xdata/images/hotel/840x460/76109618.jpg?k=ba537b048279407e0241cbd138c6dced32572a4f864bdaf5dbb60c314c3003b0&o=" />
         <div class="card-trip-infos">
           <div>
-            <h2><%= property.property_name %></h2>
+            <h2><%= link_to property.property_name, property_path(property) %></h2>
             <p><%= property.property_address %></p>
           </div>
           <h2 class="card-trip-pricing"><%= property.property_price %>€</h2>
