@@ -1,0 +1,8 @@
+<h1><%= @property.property_name%></h1>
+<ul>
+  <li><%= @property.property_address %></li>
+  <li><%= @property.property_price %></li>
+</ul>
+
+<%= link_to 'Modify your property', edit_property_path(@property) %>
+<%= link_to 'Delete your property', properties_path %>

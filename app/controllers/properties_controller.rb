@@ -1,6 +1,6 @@
 class PropertiesController < ApplicationController
   def index
-    @properites = Property.all
+    @properties = Property.all
   end
 
   def show
@@ -9,11 +9,13 @@ class PropertiesController < ApplicationController
 
   def new
     @property = Property.new
+    #authorise @property
   end
 
   def create
     @property = Property.new(property_params)
-    if @property.save
+    @property.user = current_user
+    if @property.save!
       redirect_to property_path(@property)
     else
       render :new
@@ -32,7 +34,7 @@ class PropertiesController < ApplicationController
     @property = Property.find(params[:id])
   end
 
-  def list_params
-    params.require(:property).permit(:id, :property_name)
+  def property_params
+    params.require(:property).permit(:id, :property_name, :property_price, :property_address)
   end
 end

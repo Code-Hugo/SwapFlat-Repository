@@ -1,1 +1,9 @@
 <%= button_to "logout", destroy_user_session_path, method: :delete  %>
+<h1>Lists of movies</h1>
+<ol>
+  <% @properties.each do |property| %>
+    <li><%= link_to property.property_name, property_path(property) %></li>
+  <% end %>
+</ol>
+
+<%= link_to 'List a your property', new_property_path %>
