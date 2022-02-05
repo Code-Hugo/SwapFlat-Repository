@@ -1,0 +1,7 @@
+<ol>
+  <% @bookings.each do |booking| %>
+  User Profile: <%=  booking.user.user_name %>
+  From <%= booking.booking_date_from %>
+  To <%=  booking.booking_date_to %>
+</ol>
+<% end %>
