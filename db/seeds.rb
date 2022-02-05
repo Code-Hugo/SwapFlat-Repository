@@ -1,11 +1,12 @@
 require 'faker'
 
-puts "Creating 10 fake hero services..."
+User.create!(user_name: Faker::Name.name, email: Faker::Internet.email, password: "whatever123")
+
 10.times do
   Property.create!(
-    property_name: "#{Faker::Verb.ing_form} service",
-    property_price: "I'll use my #{Faker::Superhero.power} to accomplish the mission",
-    property_address: "#{Faker::Address.street_address}, #{Faker::Address.city}",
+    property_name: "#{Faker::Name.first_name}'s property",
+    property_price: rand(300..2000),
+    property_address: %w[Barcelona Paris London Rome Berlin].sample,
     user: User.first
   )
 end
