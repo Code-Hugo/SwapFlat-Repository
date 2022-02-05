@@ -1,24 +1,22 @@
 class PropertiesController < ApplicationController
+  before_action :find_property, only: [:destroy, :update, :show, :edit]
   def index
     @properties = Property.all
   end
 
   def show
-    @property = Property.find(params[:id])
   end
 
   def new
     @property = Property.new
-    #authorise @property
   end
 
   def edit
-    @property = Property.find(params[:id])
   end
 
   def update
-    @property = Property.find(params[:id])
     @property.update(property_params)
+    @property.save
 
     redirect_to property_path(@property)
   end
@@ -33,10 +31,9 @@ class PropertiesController < ApplicationController
     end
   end
 
-  def delete
-    find_property
+  def destroy
     @property.destroy
-    redirect_to property_path
+    redirect_to properties_path
   end
 
   private
