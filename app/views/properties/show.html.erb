@@ -2,7 +2,9 @@
 <ul>
   <li><%= @property.property_address %></li>
   <li><%= @property.property_price %></li>
+  <li><%= @property.availability_from %></li>
+  <li><%= @property.availability_until %></li>
 </ul>
 
 <%= link_to 'Modify your property', edit_property_path(@property) %>
-<%= link_to 'Delete your property', properties_path %>
+<%= link_to 'Delete your property', property_path(@property), method: :delete %>
