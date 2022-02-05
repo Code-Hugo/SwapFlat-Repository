@@ -1,5 +1,5 @@
 class Booking < ApplicationRecord
-  belongs_to :user_id
-  belongs_to :property_id
+  belongs_to :user
+  belongs_to :property
   validates :booking_date_from, :booking_date_to, presence: true
 end
