@@ -1,0 +1,9 @@
+<ol>
+  <% @bookings.each do |booking| %>
+  User Profile: <%=  booking.user.user_name %>
+  From <%= booking.booking_date_from %>
+  To <%=  booking.booking_date_to %>
+  <button type="button" class="btn btn-success">Accept</button>
+  <button type="button" class="btn btn-danger">Reject</button>
+</ol>
+<% end %>
