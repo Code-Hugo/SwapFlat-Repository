@@ -12,10 +12,10 @@
       <ul class="navbar-nav me-auto">
         <%# if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "Home", properties_path, class: "nav-link" %>
+            <p class="nav-link"><%= "Welcome to SwapFlat, #{current_user.user_name}" %></p>
           </li>
           <li class="nav-item">
-            <%= link_to "Properties", "#", class: "nav-link" %>
+            <%= link_to "Properties", properties_path, class: "nav-link" %>
           </li>
           <%# <li class="nav-item dropdown"> %>
             <%#= image_tag "https://kitt.lewagon.com/placeholder/users/franciscocsilva26", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
