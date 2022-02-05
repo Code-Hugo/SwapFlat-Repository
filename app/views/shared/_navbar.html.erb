@@ -11,9 +11,9 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <%# if user_signed_in? %>
-          <li class="nav-item active">
-            <p class="nav-link"><%= "Welcome to SwapFlat, #{current_user.user_name}" %></p>
-          </li>
+          <%# <li class="nav-item active"> %>
+            <%# <p class="nav-link"><%= "Welcome to SwapFlat, #{current_user.user_name}" %></p>
+          <%# </li> %>
           <li class="nav-item">
             <%= link_to "Properties", properties_path, class: "nav-link" %>
           </li>

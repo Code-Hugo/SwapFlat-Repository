@@ -19,10 +19,14 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.property = @property
     if @booking.save!
-      redirect_to properties_path(@booking)
+      redirect_to user_path(@user)
     else
       render :new
     end
+  end
+
+  def my_bookings
+    @bookings = Booking.where(bookings.user = current_user)
   end
 
   private
