@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   root to: 'properties#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :properties do
-    resources :bookings, only: [ :index, :new, :create, :my_bookings]
+    resources :bookings, only: [ :index, :new, :create ]
   end
   resources :bookings, only: [ :edit, :update, :destroy ]
+  get 'my_bookings', to: 'bookings#my_bookings'
 end
