@@ -8,6 +8,17 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
   end
 
+  def edit
+    @booking = Booking.find(params[:id])
+  end
+
+  def update
+    @booking = Booking.find(params[:id])
+    @booking.update(booking_params)
+    @booking.save
+    redirect_to my_bookings_path
+  end
+
   def new
     @property = Property.find(params[:property_id])
     @booking  = Booking.new
@@ -25,9 +36,17 @@ class BookingsController < ApplicationController
     end
   end
 
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    redirect_to my_bookings_path
+  end
+
   def my_bookings
     @bookings = current_user.bookings
   end
+
+
 
   private
 

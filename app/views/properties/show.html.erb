@@ -2,8 +2,8 @@
 <ul>
   <li><%= @property.property_address %></li>
   <li><%= @property.property_price %></li>
-  <li><%= @property.availability_from %></li>
-  <li><%= @property.availability_until %></li>
+  <li>From<%= @property.availability_from %></li>
+  <li>To<%= @property.availability_until %></li>
 </ul>
 
 <%= link_to 'Modify your property', edit_property_path(@property) %>
