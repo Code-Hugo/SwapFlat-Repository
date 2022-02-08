@@ -1,7 +1,12 @@
 class PropertiesController < ApplicationController
   before_action :find_property, only: [:destroy, :update, :show, :edit]
+
   def index
-    @properties = Property.all
+    if params[:search][:query].present?
+      @properties = Property.search_by_location(params[:search][:query])
+    else
+      @properties = Property.all
+    end
   end
 
   def show
