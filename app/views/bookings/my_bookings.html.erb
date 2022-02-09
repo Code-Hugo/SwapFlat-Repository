@@ -1,16 +1,15 @@
 <ol>
+<h1>My Bookings:</h1>
   <% @bookings.each do |booking| %>
-  <%# Put property name %>
   <h2><%= link_to booking.property.property_name, property_path(booking.property) %></h2>
-  My Bookings:
-  Booking Number <%= booking.id %>
-  Check-in <%= booking.booking_date_from %>
-  Check-out <%=  booking.booking_date_to %>
+  <p><strong>Booking ID Number:</strong> <%= booking.id %></p>
+  <p><strong>Check-in:</strong> <%= booking.booking_date_from %></p>
+  <p><strong>Check-out:</strong> <%=  booking.booking_date_to %></p>
   <%= link_to edit_booking_path(booking) do %>
-  <button type="button" class="btn btn-primary" >Modify</button>
+    <button type="button" class="btn btn-primary" >Modify</button>
   <% end %>
   <%= link_to booking_path(booking), method: :delete, data: {confirm: 'Are you sure?'} do %>
-  <button type="button" class="btn btn-danger">Cancel</button>
+    <button type="button" class="btn btn-danger">Cancel</button>
+  <% end %>
   <% end %>
 </ol>
-<% end %>

@@ -6,6 +6,12 @@
   <li>To<%= @property.availability_until %></li>
 </ul>
 
-<%= link_to 'Modify your property', edit_property_path(@property) %>
-<%= link_to 'Delete your property', property_path(@property), method: :delete %>
-<%= link_to 'Book your stay', new_property_booking_path(@property) %>
+<%= link_to edit_property_path(@property) do %>
+  <button type="button" class="btn btn-primary" >Modify your property</button>
+<% end %>
+<%= link_to property_path(@property), method: :delete do %>
+  <button type="button" class="btn btn-primary">Delete your property</button>
+<% end %>
+<%= link_to new_property_booking_path(@property) do %>
+  <button type="button" class="btn btn-primary">Book your stay</button>
+<% end %>
