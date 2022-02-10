@@ -1,11 +1,10 @@
-
 <div class="container">
   <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
     <h2>Make a booking</h2>
 
     <%= simple_form_for [@property, @booking] do |f| %>
-      <%= f.input :booking_date_from, as: :string, required: false, input_html: {class: "datepicker"} %>
-      <%= f.input :booking_date_to, as: :string, required: false, input_html: {class: "datepicker"} %>
+      <%= f.input :booking_date_from, as: :string, required: false, input_html: {class: "datepicker", value: Date.today} %>
+      <%= f.input :booking_date_to, as: :string, required: false, input_html: {class: "datepicker", value: Date.today} %>
       <%= f.button :submit, "Book Now", class: "btn btn-primary" %>
     <% end %>
   </div>

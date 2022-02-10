@@ -22,7 +22,6 @@ ActiveRecord::Schema.define(version: 2022_02_05_143235) do
     t.string "booking_date_to"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "bookingstatus"
     t.boolean "status"
     t.index ["property_id"], name: "index_bookings_on_property_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
