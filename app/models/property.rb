@@ -3,6 +3,8 @@ class Property < ApplicationRecord
   has_many :bookings
   validates :property_address, :property_name, :property_price, presence: true
   validates :property_price, numericality: { only_integer: true }
+  geocoded_by :property_address
+  after_validation :geocode, if: :will_save_change_to_property_address?
 
   include PgSearch::Model
   pg_search_scope :search_by_location,
