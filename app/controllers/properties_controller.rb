@@ -10,6 +10,12 @@ class PropertiesController < ApplicationController
   end
 
   def show
+    @markers = Property.where(id: @property.id).geocoded.map do |property|
+      {
+        lat: property.latitude,
+        lng: property.longitude
+      }
+    end
   end
 
   def new
