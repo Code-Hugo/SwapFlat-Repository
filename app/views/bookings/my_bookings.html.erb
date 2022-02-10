@@ -5,6 +5,9 @@
   <p><strong>Booking ID Number:</strong> <%= booking.id %></p>
   <p><strong>Check-in:</strong> <%= booking.booking_date_from %></p>
   <p><strong>Check-out:</strong> <%=  booking.booking_date_to %></p>
+  <p><strong>Number of nights:</strong> <%= total_nights = (booking.booking_date_to.to_date - booking.booking_date_from.to_date).to_i%></p>
+  <p><strong>TOTAL PRICE:</strong> <%= (total_nights * booking.property.property_price) %> € (<%= booking.property.property_price %>€ per night) </p>
+  <p><strong>Status:</strong> Waiting for host approval</p>
   <%= link_to edit_booking_path(booking) do %>
     <button type="button" class="btn btn-primary" >Modify</button>
   <% end %>
