@@ -1,22 +1,30 @@
-<h1><%= @property.property_name%></h1>
-<ul>
-  <li><%= @property.property_address %></li>
-  <li><%= @property.property_price %></li>
-  <li>From<%= @property.availability_from %></li>
-  <li>To<%= @property.availability_until %></li>
-</ul>
+<div class="container_prop_show">
+  <div class="prop_name">
+    <h1><%= @property.property_name%></h1>
+    <img src="https://q-xx.bstatic.com/xdata/images/hotel/840x460/76109618.jpg?k=ba537b048279407e0241cbd138c6dced32572a4f864bdaf5dbb60c314c3003b0&o=" />
+    <div class="prop_details">
+      <i class="fas fa-home"></i> <%= @property.property_address %> |
+      <i class="fas fa-euro-sign"></i> <%= @property.property_price %> |
+      <i class="fas fa-calendar-alt"></i> From<%= @property.availability_from %> |
+      <i class="fas fa-calendar"></i> To<%= @property.availability_until %>
+      </div>
+  </div>
+  <div class="prop_buttons">
+    <%= link_to edit_property_path(@property) do %>
+    <button type="button" class="btn btn-primary" >Modify your property</button>
+    <% end %>
+    <%= link_to property_path(@property), method: :delete do %>
+      <button type="button" class="btn btn-primary">Delete your property</button>
+    <% end %>
+    <%= link_to new_property_booking_path(@property) do %>
+      <button type="button" class="btn btn-primary">Book your stay</button>
+    <% end %>
+  </div>
 
-<%= link_to edit_property_path(@property) do %>
-  <button type="button" class="btn btn-primary" >Modify your property</button>
-<% end %>
-<%= link_to property_path(@property), method: :delete do %>
-  <button type="button" class="btn btn-primary">Delete your property</button>
-<% end %>
-<%= link_to new_property_booking_path(@property) do %>
-  <button type="button" class="btn btn-primary">Book your stay</button>
-<% end %>
-
-<div id="map"
-     style="width: 100%; height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  <div class="prop_map">
+    <div id="map"
+        style="width: 100%; height: 600px;"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  </div>
+</div>
