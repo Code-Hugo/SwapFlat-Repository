@@ -20,14 +20,15 @@
     <% @properties.take(9).each do |property| %>
       <%= link_to property_path(property) do %>
       <div class="card-trip">
-        <img src="https://q-xx.bstatic.com/xdata/images/hotel/840x460/76109618.jpg?k=ba537b048279407e0241cbd138c6dced32572a4f864bdaf5dbb60c314c3003b0&o=" />
+        <%= cl_image_tag(property.photo.key,
+      width: 400, height: 300, crop: :fill) %>
         <div class="card-trip-infos">
           <div>
             <h2><%= property.property_name %></h2>
             <p><%= property.property_address %></p>
           </div>
           <h2 class="card-trip-pricing"><%= property.property_price %>€</h2>
-          <img src="https://kitt.lewagon.com/placeholder/users/nikkilol" class="card-trip-user avatar-bordered" />
+          <img src="https://kitt.lewagon.com/placeholder/users/tobgol" class="card-trip-user avatar-bordered" />
         </div>
       </div>
       <% end %>
