@@ -1,7 +1,7 @@
 <div class="container_prop_show">
   <div class="prop_name">
     <h1><%= @property.property_name%></h1>
-    <img src="https://q-xx.bstatic.com/xdata/images/hotel/840x460/76109618.jpg?k=ba537b048279407e0241cbd138c6dced32572a4f864bdaf5dbb60c314c3003b0&o=" />
+    <%= cl_image_tag(@property.photo.key, width: 1000, height: 700, crop: :fill) %>
     <div class="prop_details">
       <i class="fas fa-home"></i> <%= @property.property_address %> |
       <i class="fas fa-euro-sign"></i> <%= @property.property_price %> |
